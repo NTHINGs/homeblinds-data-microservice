@@ -4,7 +4,7 @@ const request = require("request");
 const bodyParser = require("body-parser");
 
 // Para futura referencia asi se jala la data del usuario
-curl -X GET "https://graph.facebook.com/<PSID>?fields=first_name,last_name,profile_pic&access_token=<PAGE_ACCESS_TOKEN>"
+//curl -X GET "https://graph.facebook.com/<PSID>?fields=first_name,last_name,profile_pic&access_token=<PAGE_ACCESS_TOKEN>"
 
 // Configuración MongoDB
 const MongoClient = require('mongodb').MongoClient;
