@@ -8,8 +8,7 @@ const bodyParser = require("body-parser");
 
 // Configuración MongoDB
 const MongoClient = require('mongodb').MongoClient;
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}/test?retryWrites=true&w=majority`;
-
+const uri = process.env.MONGODB_URI
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -69,7 +68,7 @@ function process_event(event) {
             "sender": event.sender.id
         }
         MongoClient.connect(uri, (err, db) => {
-            const collection = db.db("homeblinds-data").collection("messenger-chats");
+            const collection = db.db("heroku_n0zvm3ng").collection("messenger-chats");
             collection.insertOne(payload, (err, result) => {
                 console.log("Mensaje insertado en la db!");
                 db.close();
